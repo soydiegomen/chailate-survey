@@ -1,0 +1,18 @@
+.survey-wrapper{
+	background-color: #B15983;
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+
+.survey-title{
+	margin-bottom: 30px;
+}
+
+#survey-form{
+	background-color: #fff;
+	padding: 20px;
+}
+
+#survey-form .control-label{
+	font-size: 18px;
+}

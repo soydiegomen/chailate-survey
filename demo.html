@@ -34,38 +34,85 @@
   <body>
     <header>
     </header>
-    <div class="container">
-      <h3>En chailate nos interesa mucho conocer tu opinion. Ayudanos a contestar un par de pregutas sobre nuestro servicio</h3>
-      <form id="suervey" action="#" method="POST">
-        <section>
-          <h4 class="chai-question">¿En general qué te pareció el servicio?</h4>
-          <input type="radio" name="q1-opGood" value="Bueno" checked />Bueno<br>
-          <input type="radio" name="q1-opRegular" value="Regular" />Regular<br>
-          <input type="radio" name="q1-opBad" value="Malo"/>Malo
-        </section>
-        <section>
-          <h4 class="chai-question">¿Qué te pareció el precio?</h4>
-          <input type="radio" name="q2-opGood" value="Bueno" checked />Bueno<br>
-          <input type="radio" name="q2-opRegular" value="Regular" />Regular<br>
-          <input type="radio" name="q2-opBad" value="Malo"/>Malo
-        </section>
-        <section>
-          <h4 class="chai-question">¿Qué te pareció la atención del personal de Chailate?</h4>
-          <input type="radio" name="q3-opGood" value="Bueno" checked />Bueno<br>
-          <input type="radio" name="q3-opRegular" value="Regular" />Regular<br>
-          <input type="radio" name="q3-opBad" value="Malo"/>Malo
-        </section>
-        <section>
-          <h4 class="chai-question">¿Nos recomendarias con tus amigos?</h4>
-          <input type="radio" name="q4-yes" value="Bueno" checked />Sí<br>
-          <input type="radio" name="q4-no" value="Regular" />No
-        </section>
-        <section>
-          <h4 class="chai-question">Nos encantaría que nos dejes un comentario!!</h4>
-          <textarea rows="6" name="q5-comment"></textarea>
-        </section>
-        <input type="submit" name="btnSend" value="Enviar!" />
-      </form>
+    <div class="survey-wrapper">
+      <div class="container">
+        <form id="survey-form" action="#" method="POST">
+          <h1 class="survey-title text-center">¡Cuentanos que te parecio trabajar juntos!</h1>
+          <div class="lead">En chailate nos interesa mucho conocer tu opinion. Ayudanos a contestar un par de pregutas sobre nuestro servicio.</div>
+          <div class="form-group">
+            <label class="control-label">¿En general qué te pareció el servicio?</label>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Bueno" checked >Bueno
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Regular" >Regular
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Malo">Malo
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">¿Qué te pareció el precio?</label>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Bueno" checked >Bueno
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Regular" >Regular
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Malo">Malo
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">¿Qué te pareció la atención del personal de Chailate?</label>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Bueno" checked >Bueno
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Regular" >Regular
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Malo">Malo
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">¿Nos recomendarias con tus amigos?</label>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="Si" checked >Si
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="q1" value="No" >No
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Nos encantaría que nos dejes un comentario!!</label>
+            <textarea rows="4" name="q5-comment" class="form-control" placeholder="Comentarios"></textarea>
+          </div>
+          <input type="submit" name="btnSend" value="Enviar!" class="btn btn-primary" />
+        </form>
+      </div>
     </div>
     <footer>
     </footer>
