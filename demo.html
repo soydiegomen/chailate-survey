@@ -38,83 +38,149 @@
       <div class="container">
         <form id="survey-form" action="#" method="POST">
           <h1 class="survey-title text-center">¡Cuentanos que te parecio trabajar juntos!</h1>
-          <div class="lead">En chailate nos interesa mucho conocer tu opinion. Ayudanos a contestar un par de pregutas sobre nuestro servicio.</div>
+          <div class="lead">
+          En chailate nos interesa mucho conocer tu opinion. Ayudanos a contestar un par de pregutas sobre nuestro servicio.</div>
           <div class="form-group">
             <label class="control-label">¿En general qué te pareció el servicio?</label>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Bueno" checked >Bueno
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                  <i class="fa fa-smile-o fa-lg" aria-hidden="true"></i>
+                Bueno
+              </a>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Regular" >Regular
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                <i class="fa fa-meh-o fa-lg" aria-hidden="true"></i> 
+                Regular
+              </a>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Malo">Malo
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                <i class="fa fa-frown-o fa-lg" aria-hidden="true"></i>
+                Malo
+              </a>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label">¿Qué te pareció el precio?</label>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Bueno" checked >Bueno
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                  <i class="fa fa-smile-o fa-lg" aria-hidden="true"></i>
+                Bueno
+              </a>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Regular" >Regular
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                <i class="fa fa-meh-o fa-lg" aria-hidden="true"></i> 
+                Regular
+              </a>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Malo">Malo
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                <i class="fa fa-frown-o fa-lg" aria-hidden="true"></i>
+                Malo
+              </a>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label">¿Qué te pareció la atención del personal de Chailate?</label>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Bueno" checked >Bueno
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                  <i class="fa fa-smile-o fa-lg" aria-hidden="true"></i>
+                Bueno
+              </a>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Regular" >Regular
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                <i class="fa fa-meh-o fa-lg" aria-hidden="true"></i> 
+                Regular
+              </a>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Malo">Malo
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                <i class="fa fa-frown-o fa-lg" aria-hidden="true"></i>
+                Malo
+              </a>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label">¿Nos recomendarias con tus amigos?</label>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="Si" checked >Si
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                  <i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i>
+                Sí
+              </a>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="q1" value="No" >No
-              </label>
+            <div class="option">
+              <a class="btn btn-default" href="#">
+                <i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i> 
+                No
+              </a>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label">Nos encantaría que nos dejes un comentario!!</label>
             <textarea rows="4" name="q5-comment" class="form-control" placeholder="Comentarios"></textarea>
           </div>
-          <input type="submit" name="btnSend" value="Enviar!" class="btn btn-primary" />
+          <input type="submit" name="btnSend" value="Enviar!" class="btn btn-primary btn-lg" />
         </form>
       </div>
     </div>
-    <footer>
+    <footer ng-if="!isRouteLoading" class="chai-dark-color hide-footer" ng-class="'show-footer'">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 text-center">
+            
+            <img src="img/logo-chai.png" alt="chailate" style="height:40px;">
+            <br><br>
+            Somos una agencia de diseño <br>
+            en donde hacemos de nuestra pasion <br>
+            el trabajo perfecto
+          </div>
+          <div class="col-md-3">
+            <ul class="footer-menu list-unstyled">
+              <li>
+                <a href="/">Inicio</a>
+              </li>
+              <li>
+                <a href="/#servicios">Servicios</a>
+              </li>
+              <li>
+                <a href="/#trabajo">Portafolio</a>
+              </li>
+              <li>
+                <a href="/#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="footer-menu list-unstyled">
+              <li>
+                <a href="/">
+                  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                  chailateagencia@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="/#servicios">
+                  <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>55 73 29 32 54
+                </a>
+              </li>
+            </ul>
+            <p class="social-links">
+                <a href="https://twitter.com/chailateagencia" class="tw-link">
+                  <i class="fa fa-twitter fa-lg"></i>
+                </a>
+                <a href="https://www.instagram.com/chailateagencia/" class="ins-link">
+                  <i class="fa fa-instagram fa-lg"></i>
+                </a>            
+                <a href="https://www.facebook.com/chailateagencia/" class="fb-link">
+                  <i class="fa fa-facebook fa-lg"></i>
+                </a>
+            </p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

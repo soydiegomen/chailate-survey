@@ -16,3 +16,120 @@
 #survey-form .control-label{
 	font-size: 18px;
 }
+
+#survey-form .option {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#survey-form .option+.option {
+    margin-top: -5px;
+}
+
+/*Chailate landing styles*/
+.coco-color{
+	background-color: #FF3366;
+	border-color: #FF3366;
+}
+
+.coco-color a{
+	color: #fff;
+}
+a.coco-color, input.coco-color{
+	border-color: #D21141;
+}
+a.coco-color:hover, input.coco-color:hover{
+	background-color: #D21141;
+	border-color: #AB0A32;
+}
+.chai-dark-color{
+	background-color: #242424;
+}
+/*Footer styles*/
+footer{
+	padding: 20px 0;
+	color: #fff;
+	font-size: 16px;
+}
+footer h1{
+	margin-bottom: 15px;
+}
+footer a{
+	color: #fff;
+}
+.footer-menu{
+	margin: 20px;
+}
+.footer-menu a{
+	color: #fff;
+	text-decoration: underline;
+}
+.social-footer{
+	font-size: 20px;
+    margin: 15px 0px;
+}
+#fb-bottom{
+	line-height: 20px;
+}
+.footer-contact{
+	margin: 20px 0;
+}
+/*Animation for service list*/
+/*default setings*/
+.coco-service{
+	transition: all 0.6s ease;
+	-webkit-transition: all 0.6s ease; /* Chrome */
+	min-height: 350px;
+}
+.coco-service p{
+	/*Hide service details*/
+	display: none;
+}
+/*trigger animation*/
+.coco-service:hover{
+	background-color: #FF3366;
+}
+.coco-service:hover h3{
+	margin-top: 0;
+}
+.coco-service:hover .icon-to-hide{
+	display: none;
+}
+.coco-service:hover p{
+	display: block;
+}
+.coco-service a:hover{
+	text-decoration: none;
+}
+/*Tablets and smartphones*/
+@media (max-width: 768px){
+	.inner-feature{
+		margin: 0;
+		padding: 50px 0 40px;
+	}
+	.inner-feature h3{
+		min-height: inherit;
+	}
+}
+/*Smartphones*/
+@media (max-width: 568px){
+	.footer-menu{
+		float: inherit;
+	}
+	.footer-menu>li{
+		display: block;
+	}
+}
+
+footer ul{
+	text-align: left;
+}
+
+footer li{
+	margin-left: 20px;
+}
+.social-links{
+	text-align: center;
+}
