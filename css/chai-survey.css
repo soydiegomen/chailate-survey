@@ -1,39 +1,37 @@
-.survey-wrapper{
+.survey-background{
 	background-color: #B15983;
 	padding-top: 50px;
 	padding-bottom: 30px;
 }
-
 .survey-title{
 	margin-bottom: 30px;
 }
-
-#survey-form{
+#survey-wrapper{
+	min-height: 200px;
 	background-color: #fff;
 	padding: 20px;
 }
-
+/*Survey form*/
+#survey-form{
+	
+}
 #survey-form .control-label{
 	font-size: 18px;
 }
-
 #survey-form .option {
     position: relative;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 #survey-form .option+.option {
     margin-top: -5px;
 }
-
 /*Chailate landing styles*/
 .coco-color{
 	background-color: #FF3366;
 	border-color: #FF3366;
 }
-
 .coco-color a{
 	color: #fff;
 }
@@ -72,7 +70,6 @@ footer li{
 .footer-contact{
 	margin: 20px 0;
 }
-
 .social-footer{
 	font-size: 20px;
     margin: 15px 0px;
@@ -92,4 +89,24 @@ footer li{
 }
 .invitation-message, .invitation-message a{
 	color: #ccc;
+}
+/*survey-sent*/
+
+.survey-sent a.tw-link{
+	color: #1DA1F2;
+}
+.survey-sent a.fb-link{
+	color: #3B5998;
+}
+.survey-sent a.ins-link{
+	color: #7F44B5;
+}
+.survey-sent a.tw-link:hover{
+	color: #1d79f2;
+}
+.survey-sent a.fb-link:hover{
+	color: #5D92FF;
+}
+.survey-sent a.ins-link:hover{
+	color: #9b44b5;
 }
