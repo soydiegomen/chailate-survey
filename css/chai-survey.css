@@ -49,87 +49,47 @@ a.coco-color:hover, input.coco-color:hover{
 }
 /*Footer styles*/
 footer{
-	padding: 20px 0;
+	padding: 30px 0;
 	color: #fff;
-	font-size: 16px;
 }
-footer h1{
-	margin-bottom: 15px;
+footer h3{
+	margin-top: 0;
 }
 footer a{
 	color: #fff;
+	text-decoration: none;
 }
-.footer-menu{
-	margin: 20px;
-}
-.footer-menu a{
+footer a:hover{
 	color: #fff;
 	text-decoration: underline;
 }
-.social-footer{
-	font-size: 20px;
-    margin: 15px 0px;
+footer li{
+	margin-bottom: 5px;
 }
-#fb-bottom{
-	line-height: 20px;
+.footer-menu{
+	margin: 0 20px;
 }
 .footer-contact{
 	margin: 20px 0;
 }
-/*Animation for service list*/
-/*default setings*/
-.coco-service{
-	transition: all 0.6s ease;
-	-webkit-transition: all 0.6s ease; /* Chrome */
-	min-height: 350px;
+
+.social-footer{
+	font-size: 20px;
+    margin: 15px 0px;
 }
-.coco-service p{
-	/*Hide service details*/
-	display: none;
-}
-/*trigger animation*/
-.coco-service:hover{
-	background-color: #FF3366;
-}
-.coco-service:hover h3{
-	margin-top: 0;
-}
-.coco-service:hover .icon-to-hide{
-	display: none;
-}
-.coco-service:hover p{
-	display: block;
-}
-.coco-service a:hover{
+.social-links a{
 	text-decoration: none;
+	margin-right: 10px;
 }
-/*Tablets and smartphones*/
-@media (max-width: 768px){
-	.inner-feature{
-		margin: 0;
-		padding: 50px 0 40px;
-	}
-	.inner-feature h3{
-		min-height: inherit;
-	}
+.tw-link:hover{
+	color: #1DA1F2;
 }
-/*Smartphones*/
-@media (max-width: 568px){
-	.footer-menu{
-		float: inherit;
-	}
-	.footer-menu>li{
-		display: block;
-	}
+.fb-link:hover{
+	color: #3B5998;
 }
-
-footer ul{
-	text-align: left;
+.ins-link:hover{
+	color: #7F44B5;
 }
-
-footer li{
-	margin-left: 20px;
-}
-.social-links{
-	text-align: center;
+.invitation-message, .invitation-message a{
+	color: #ccc;
 }
