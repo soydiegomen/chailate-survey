@@ -14,7 +14,7 @@
 
 		function activate(){
 			console.log('Activated HomeCtrl');	
-			console.log('All is ok!');
+			console.log('All is fine!');
 		}
 	}
 })();
