@@ -110,3 +110,9 @@ footer li{
 .survey-sent a.ins-link:hover{
 	color: #9b44b5;
 }
+/*Tablets and smartphones*/
+@media (max-width: 768px){
+	.survey-sent .jumbotron{
+		padding: 10px;
+	}
+}
