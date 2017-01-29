@@ -1,7 +1,7 @@
 ( function() {
 	'use strict';
 
-	angular.module('chaiApp.home').controller('HomeCtrl', HomeCtrl);
+	angular.module('surveyApp.home').controller('HomeCtrl', HomeCtrl);
 
 	HomeCtrl.$inject = ['$routeParams'];
 

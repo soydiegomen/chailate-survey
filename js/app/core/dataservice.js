@@ -2,7 +2,7 @@
 	'use strict';
 
 	
-	angular.module('chaiApp.core').factory('dataservice', dataservice);
+	angular.module('surveyApp.core').factory('dataservice', dataservice);
 
 	dataservice.$inject = ['$http','appConfig'];
 

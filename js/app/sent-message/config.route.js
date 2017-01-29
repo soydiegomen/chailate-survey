@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('chaiApp.sentMessage').run(appRun);
+	angular.module('surveyApp.sentMessage').run(appRun);
 
 	function appRun(routehelper){
 		routehelper.configureRoutes(getRoutes());

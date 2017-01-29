@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 	
-	angular.module('chaiApp.core').factory('analyticsservice', analyticsservice);
+	angular.module('surveyApp.core').factory('analyticsservice', analyticsservice);
 
 	analyticsservice.$inject = ['$http','appConfig', '$window', '$location'];
 

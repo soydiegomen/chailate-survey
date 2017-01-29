@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('chaiApp.core', [
+    angular.module('surveyApp.core', [
         /*
          * Angular modules
          */

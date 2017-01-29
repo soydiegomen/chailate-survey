@@ -1,4 +1,4 @@
 (function() {
 	'use strict';
-	angular.module('chaiApp.widgets', []);
+	angular.module('surveyApp.widgets', []);
 })();

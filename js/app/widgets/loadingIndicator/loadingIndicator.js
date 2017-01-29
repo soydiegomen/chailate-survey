@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	/* The name of the directives must star with lower case*/
-	angular.module('chaiApp.widgets').directive('loadingIndicator', loadingIndicator);
+	angular.module('surveyApp.widgets').directive('loadingIndicator', loadingIndicator);
 
 	loadingIndicator.$inject = ['$rootScope'];
 
