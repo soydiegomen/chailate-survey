@@ -3,6 +3,7 @@
 	angular.module( 'chaiApp', [
 		'chaiApp.core',
 		'chaiApp.widgets',
-		'chaiApp.home'
+		'chaiApp.home',
+		'chaiApp.sentMessage'
 	]);
 })();
