@@ -7,7 +7,7 @@
 	margin-bottom: 30px;
 }
 #survey-wrapper{
-	min-height: 200px;
+	min-height: 340px;
 	background-color: #fff;
 	padding: 20px;
 }
@@ -91,7 +91,9 @@ footer li{
 	color: #ccc;
 }
 /*survey-sent*/
-
+.survey-sent .jumbotron{
+	background-color: #fff;
+}
 .survey-sent a.tw-link{
 	color: #1DA1F2;
 }
