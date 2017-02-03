@@ -64,6 +64,12 @@ footer a:hover{
 footer li{
 	margin-bottom: 5px;
 }
+.hide-footer{
+	display: none;
+}
+.show-footer{
+	display: block;
+}
 .footer-menu{
 	margin: 0 20px;
 }
