@@ -1,5 +1,7 @@
-.survey-background{
+body{
 	background-color: #B15983;
+}
+.survey-background{
 	padding-top: 50px;
 	padding-bottom: 30px;
 }
