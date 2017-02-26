@@ -126,7 +126,7 @@
   </div>
   <div class="form-group">
     <label class="control-label">Nos encantaría que nos dejes un comentario!!</label>
-    <textarea rows="4" name="q5-comment" class="form-control" placeholder="Comentarios"></textarea>
+    <textarea rows="4" name="q5-comment" class="form-control" placeholder="Comentarios" ng-model="homeCtrl.commentsAnswer"></textarea>
   </div>
   <input type="button" name="btnSend" value="Enviar!" class="btn btn-primary btn-lg coco-color" ng-click="homeCtrl.saveSurvey();" />
 </form>

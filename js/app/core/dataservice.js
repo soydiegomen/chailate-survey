@@ -8,37 +8,39 @@
 
 	function dataservice($http, appConfig){
 		var service = {
-			getChailateSurvey : getChailateSurvey
+			getChailateSurvey : getChailateSurvey,
+			saveAnswer : saveAnswer
 		};
 
 		return service;
 
-		function getChailateSurvey(){
-			var serviceUrl = 'http://localhost:3000/api/survey/58b10ecda7ca0f700b000003';
-			return $http.get(serviceUrl).then(getDesignGallComplete).catch(function (message){
-				console.log('Error in getDesignGallery. Message:' + message);
-			});
+		function getChailateSurvey(surveyid){
+			var serviceUrl = 'http://localhost:3000/api/survey/' + surveyid;
+			return $http.get(serviceUrl)
+				.then(getSurveyComplete)
+				.catch(function (message){
+					console.log('Error in getChailateSurvey. Message:' + message);
+				});
 
-			function getDesignGallComplete(data, status, headers, config){
+			function getSurveyComplete(data, status, headers, config){
 				return data.data;
 			}
 		}
 
-		/*Helpers*/
-		function getPortfolioService(type){
-			var serviceUrl = '';
-			switch(type){
-				case 'design':
-					serviceUrl = 'jsons/portfolio-diseno.json';
-					break;
-				case 'photos':
-					serviceUrl = 'jsons/portfolio-photos.json';
-					break;
-				case 'webdev':
-					serviceUrl = 'jsons/portfolio-webdev.json';
-					break;
+		function saveAnswer(answer){
+			var jsonAnswer = JSON.stringify(answer);
+			console.log(jsonAnswer);
+
+			var serviceUrl = 'http://localhost:3000/api/answers';
+			return $http.post(serviceUrl, jsonAnswer)
+				.then(saveAnswerComplete)
+				.catch(function (message){
+					console.log('Error in saveAnswer. Message:' + message);
+				});
+
+			function saveAnswerComplete(data, status, headers, config){
+				return data.data;
 			}
-			return serviceUrl;
 		}
 	}
 })();
