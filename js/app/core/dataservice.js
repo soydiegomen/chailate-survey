@@ -29,14 +29,10 @@
 
 		function saveAnswer(answer){
 			var jsonAnswer = JSON.stringify(answer);
-			console.log(jsonAnswer);
 
 			var serviceUrl = 'http://localhost:3000/api/answers';
 			return $http.post(serviceUrl, jsonAnswer)
-				.then(saveAnswerComplete)
-				.catch(function (message){
-					console.log('Error in saveAnswer. Message:' + message);
-				});
+				.then(saveAnswerComplete);
 
 			function saveAnswerComplete(data, status, headers, config){
 				return data.data;

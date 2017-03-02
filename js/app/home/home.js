@@ -14,6 +14,12 @@
 		//Variables
 		homeCtrl.survey = null;
 		homeCtrl.initTime = new Date();
+		//Variables for Answers
+		homeCtrl.fstAnswer = '';
+		homeCtrl.secAnswer = '';
+		homeCtrl.thirdAnswer = '';
+		homeCtrl.fourthAnswer = '';
+		homeCtrl.commentsAnswer = '';
 
 		//Initialize controller
 		activate();
@@ -27,7 +33,22 @@
 
 		function saveSurvey(){
 			var answer = buildAnswer();
-			saveAnswer(answer);
+
+			//If the answer could be build must save it
+			if(answer !== null){
+				saveAnswer(answer)
+				.then(function(data) {
+					navToSuccessView();
+					return data;	
+				})
+				.catch(function(message){
+					console.log('Error in saveSurvey: ' + message );
+					navToSuccessView();
+				});	
+			}else{
+				//Answer not be save but is better idea show success view to error view
+				navToSuccessView();
+			}
 		}
 
 		function getChailateSurvey(){
@@ -39,11 +60,7 @@
 		}
 
 		function saveAnswer(answer){
-			return dataservice.saveAnswer(answer)
-				.then(function(data) {
-					navToSuccessView();								
-					return data;
-				});
+			return dataservice.saveAnswer(answer);
 		}
 
 		function navToSuccessView(){
@@ -73,9 +90,6 @@
 				//Set answer details
 				answer.details = getAnswerDetails();
 				
-			}else{
-				//Answer not be save but is better idea show success view to error view
-				navToSuccessView();
 			}
 
 			return answer;
