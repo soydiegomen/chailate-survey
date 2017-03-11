@@ -4,6 +4,7 @@
 		'surveyApp.core',
 		'surveyApp.widgets',
 		'surveyApp.home',
-		'surveyApp.sentMessage'
+		'surveyApp.sentMessage',
+		'surveyApp.dashboard'
 	]);
 })();
