@@ -1,2 +1,26 @@
 <h1>Dashboard!!</h1>
-<div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
+
+<div class="row">
+    <div class="col-md-6">
+    	<div class="panel panel-primary"> 
+    		<div class="panel-heading"> 
+    			<h3 class="panel-title">Encuestas contestadas los últimos seis meses</h3> 
+    		</div> 
+    		<div class="panel-body"> 
+    			<div google-chart chart="dashboardCtrl.myChartObject" style="height:300px; width:100%;"></div> 
+    		</div> 
+    	</div>
+    </div>
+    <div class="col-md-6">
+    	<div class="panel panel-primary"> 
+    		<div class="panel-heading"> 
+    			<h3 class="panel-title">Porcentage de encuestas contestadas</h3> 
+    		</div> 
+    		<div class="panel-body"> 
+                <canvas id="bar" class="chart chart-bar"
+                    chart-data="dashboardCtrl.chAnsByMo.data" chart-labels="dashboardCtrl.chAnsByMo.labels" chart-series="dashboardCtrl.chAnsByMo.series" chart-colors="dashboardCtrl.chAnsByMo.colors" chart-options="dashboardCtrl.chAnsByMo.options">
+                </canvas>
+    		</div> 
+    	</div>
+    </div>
+</div>

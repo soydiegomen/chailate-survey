@@ -1,4 +1,4 @@
 ( function() {
 	'use strict';
-	angular.module('surveyApp.dashboard', ['googlechart']);
+	angular.module('surveyApp.dashboard', ['chart.js']);
 })();

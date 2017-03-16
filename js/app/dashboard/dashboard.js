@@ -4,51 +4,58 @@
 	angular.module('surveyApp.dashboard').
 		controller('DashboardCtrl', DashboardCtrl);
 
-	//DashboardCtrl.$inject = ['$scope'];
+	DashboardCtrl.$inject = ['dataservice'];
 
-	function DashboardCtrl($scope){
+	function DashboardCtrl(dataservice){
 		var ctrl = this;
+
+		//Variables
+		ctrl.chAnsByMo = {};
+
 		activate();
 		
 		function activate(){
 			console.log('Activated Dashboard');	
+			getAnswersByMonth();
 		}
 
-		//Chart
-		$scope.myChartObject = {};
-    
-    	$scope.myChartObject.type = 'PieChart';
+		function getAnswersByMonth(){
+			return dataservice.getAnswersByMonth('58b8f349aaf9b39e0200000a')
+				.then(function(data) {
+					setupColumnChart(data);
+					return data;
+				});
+		}
 
-    	$scope.onions = [
-	        {v: 'Onions'},
-	        {v: 3},
-	    ];
+		function setupColumnChart(answers){
+			var chartData = [];
+			var listCountAns = [];
+	    	var listMonthLabels = [];
 
-	    $scope.myChartObject.data = {'cols': [
-	        {id: 't', label: 'Topping', type: 'string'},
-	        {id: 's', label: 'Slices', type: 'number'}
-	    ], 'rows': [
-	        {c: [
-	            {v: 'Mushrooms'},
-	            {v: 3},
-	        ]},
-	        {c: $scope.onions},
-	        {c: [
-	            {v: 'Olives'},
-	            {v: 31}
-	        ]},
-	        {c: [
-	            {v: 'Zucchini'},
-	            {v: 1},
-	        ]},
-	        {c: [
-	            {v: 'Pepperoni'},
-	            {v: 2},
-	        ]}
-	    ]};
+	    	answers.forEach(function(entry) {
 
-		$scope.myChartObject.options = {
-	        'title': 'How Much Pizza I Ate Last Night'
-	    };
+				listCountAns.push(entry.count);
+				listMonthLabels.push(entry._id.month + '-' + entry._id.year);
+			});
+			chartData.push(listCountAns);
+
+			var chart = ctrl.chAnsByMo;
+		    chart.labels = listMonthLabels;
+			chart.series = ['Series A'];
+
+
+			chart.data = chartData;
+			chart.colors = ['#ff6384'];
+
+			chart.options = {
+			    scales: {
+			        yAxes: [{
+			            ticks: {
+			                beginAtZero: true
+			            }
+			        }]
+			    }
+			};
+		}
 	}
 })();

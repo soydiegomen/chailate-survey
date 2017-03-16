@@ -7,9 +7,11 @@
 	dataservice.$inject = ['$http','appConfig'];
 
 	function dataservice($http, appConfig){
+		var surveyId = '58be316dcd51dfc20c000004';
 		var service = {
 			getChailateSurvey : getChailateSurvey,
-			saveAnswer : saveAnswer
+			saveAnswer : saveAnswer,
+			getAnswersByMonth : getAnswersByMonth
 		};
 
 		return service;
@@ -35,6 +37,20 @@
 				.then(saveAnswerComplete);
 
 			function saveAnswerComplete(data, status, headers, config){
+				return data.data;
+			}
+		}
+
+		//Report services
+		function getAnswersByMonth(){
+			var serviceUrl = 'http://localhost:3000/api/ans-report/answers-by-month/' + surveyId;
+			return $http.get(serviceUrl)
+				.then(getAnswersComplete)
+				.catch(function (message){
+					console.log('Error in getAnswersByMonth. Message:' + message);
+				});
+
+			function getAnswersComplete(data, status, headers, config){
 				return data.data;
 			}
 		}
