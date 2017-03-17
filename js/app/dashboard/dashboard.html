@@ -7,7 +7,9 @@
     			<h3 class="panel-title">Encuestas contestadas los últimos seis meses</h3> 
     		</div> 
     		<div class="panel-body"> 
-    			<div google-chart chart="dashboardCtrl.myChartObject" style="height:300px; width:100%;"></div> 
+    			<canvas id="chart-ans-by-month" class="chart chart-bar"
+                    chart-data="dashboardCtrl.chAnsByMo.data" chart-labels="dashboardCtrl.chAnsByMo.labels" chart-series="dashboardCtrl.chAnsByMo.series" chart-colors="dashboardCtrl.chartColors" chart-options="dashboardCtrl.chAnsByMo.options">
+                </canvas>
     		</div> 
     	</div>
     </div>
@@ -17,9 +19,7 @@
     			<h3 class="panel-title">Porcentage de encuestas contestadas</h3> 
     		</div> 
     		<div class="panel-body"> 
-                <canvas id="bar" class="chart chart-bar"
-                    chart-data="dashboardCtrl.chAnsByMo.data" chart-labels="dashboardCtrl.chAnsByMo.labels" chart-series="dashboardCtrl.chAnsByMo.series" chart-colors="dashboardCtrl.chAnsByMo.colors" chart-options="dashboardCtrl.chAnsByMo.options">
-                </canvas>
+                
     		</div> 
     	</div>
     </div>

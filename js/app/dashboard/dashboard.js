@@ -11,6 +11,7 @@
 
 		//Variables
 		ctrl.chAnsByMo = {};
+		ctrl.chartColors = ['#ff6384'];
 
 		activate();
 		
@@ -41,17 +42,18 @@
 
 			var chart = ctrl.chAnsByMo;
 		    chart.labels = listMonthLabels;
-			chart.series = ['Series A'];
+			chart.series = ['Encuestas'];
 
 
 			chart.data = chartData;
-			chart.colors = ['#ff6384'];
+			
 
 			chart.options = {
 			    scales: {
 			        yAxes: [{
 			            ticks: {
-			                beginAtZero: true
+			                beginAtZero: true,
+			                stepSize: 1
 			            }
 			        }]
 			    }
