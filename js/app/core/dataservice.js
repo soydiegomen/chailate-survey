@@ -7,7 +7,6 @@
 	dataservice.$inject = ['$http','appConfig'];
 
 	function dataservice($http, appConfig){
-		var surveyId = '58be316dcd51dfc20c000004';
 		var service = {
 			getChailateSurvey : getChailateSurvey,
 			saveAnswer : saveAnswer,
@@ -16,8 +15,8 @@
 
 		return service;
 
-		function getChailateSurvey(surveyid){
-			var serviceUrl = 'http://localhost:3000/api/survey/' + surveyid;
+		function getChailateSurvey(){
+			var serviceUrl = appConfig.apiBaseUrl + 'survey/' + appConfig.surveyId;
 			return $http.get(serviceUrl)
 				.then(getSurveyComplete)
 				.catch(function (message){
@@ -32,7 +31,7 @@
 		function saveAnswer(answer){
 			var jsonAnswer = JSON.stringify(answer);
 
-			var serviceUrl = 'http://localhost:3000/api/answers';
+			var serviceUrl = appConfig.apiBaseUrl + 'answers';
 			return $http.post(serviceUrl, jsonAnswer)
 				.then(saveAnswerComplete);
 
@@ -43,7 +42,7 @@
 
 		//Report services
 		function getAnswersByMonth(){
-			var serviceUrl = 'http://localhost:3000/api/ans-report/answers-by-month/' + surveyId;
+			var serviceUrl = appConfig.apiBaseUrl + 'ans-report/answers-by-month/' + appConfig.surveyId;
 			return $http.get(serviceUrl)
 				.then(getAnswersComplete)
 				.catch(function (message){

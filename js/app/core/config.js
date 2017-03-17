@@ -5,7 +5,8 @@
 
     core.constant('appConfig', 
     {
-        apiBaseUrl: 'http://104.131.137.249/',
+        apiBaseUrl: 'http://localhost:3000/api/',
+        surveyId: '58b8f349aaf9b39e0200000a'
     });
 
     core.config(configure);

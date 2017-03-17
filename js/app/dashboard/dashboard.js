@@ -21,7 +21,7 @@
 		}
 
 		function getAnswersByMonth(){
-			return dataservice.getAnswersByMonth('58b8f349aaf9b39e0200000a')
+			return dataservice.getAnswersByMonth()
 				.then(function(data) {
 					setupColumnChart(data);
 					return data;
@@ -29,6 +29,7 @@
 		}
 
 		function setupColumnChart(answers){
+			var chart = ctrl.chAnsByMo;
 			var chartData = [];
 			var listCountAns = [];
 	    	var listMonthLabels = [];
@@ -39,14 +40,11 @@
 				listMonthLabels.push(entry._id.month + '-' + entry._id.year);
 			});
 			chartData.push(listCountAns);
+			//Define chart data
+			chart.data = chartData;			
 
-			var chart = ctrl.chAnsByMo;
 		    chart.labels = listMonthLabels;
 			chart.series = ['Encuestas'];
-
-
-			chart.data = chartData;
-			
 
 			chart.options = {
 			    scales: {

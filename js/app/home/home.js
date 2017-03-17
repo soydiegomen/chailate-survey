@@ -52,7 +52,7 @@
 		}
 
 		function getChailateSurvey(){
-			return dataservice.getChailateSurvey('58b8f349aaf9b39e0200000a')
+			return dataservice.getChailateSurvey()
 				.then(function(data) {
 					homeCtrl.survey = data;
 					return data;
