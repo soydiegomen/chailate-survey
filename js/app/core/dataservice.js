@@ -10,7 +10,9 @@
 		var service = {
 			getChailateSurvey : getChailateSurvey,
 			saveAnswer : saveAnswer,
-			getAnswersByMonth : getAnswersByMonth
+			getAnswersByMonth : getAnswersByMonth,
+			getLastComments : getLastComments,
+			getGroupDetails : getGroupDetails
 		};
 
 		return service;
@@ -30,8 +32,8 @@
 
 		function saveAnswer(answer){
 			var jsonAnswer = JSON.stringify(answer);
-
 			var serviceUrl = appConfig.apiBaseUrl + 'answers';
+
 			return $http.post(serviceUrl, jsonAnswer)
 				.then(saveAnswerComplete);
 
@@ -42,7 +44,9 @@
 
 		//Report services
 		function getAnswersByMonth(){
-			var serviceUrl = appConfig.apiBaseUrl + 'ans-report/answers-by-month/' + appConfig.surveyId;
+			var serviceUrl = appConfig.apiBaseUrl + 'ans-report/answers-by-month/' + 
+				appConfig.surveyId + '/' + appConfig.maxMonths;
+
 			return $http.get(serviceUrl)
 				.then(getAnswersComplete)
 				.catch(function (message){
@@ -52,6 +56,49 @@
 			function getAnswersComplete(data, status, headers, config){
 				return data.data;
 			}
+		}
+
+		function getLastComments(){
+			var serviceUrl = appConfig.apiBaseUrl + 'ans-report/get-details/' + 
+				appConfig.surveyId + '/' + appConfig.commentQuestion + '/' + appConfig.maxMonths;
+
+			return $http.get(serviceUrl)
+				.then(getLastCommentsComplete)
+				.catch(function (message){
+					console.log('Error in getLastComments. Message:' + message);
+				});
+
+			function getLastCommentsComplete(data, status, headers, config){
+				return data.data;
+			}
+		}
+
+		function getGroupDetails(question){
+			var questionId = getQuestionId(question);
+			var serviceUrl = appConfig.apiBaseUrl + 'ans-report/group-details-by-values/' + 
+				appConfig.surveyId + '/' + questionId + '/' + appConfig.maxMonths;
+
+			return $http.get(serviceUrl)
+				.then(getGroupDetailsComplete)
+				.catch(function (message){
+					console.log('Error in getLastComments. Message:' + message);
+				});
+
+			function getGroupDetailsComplete(data, status, headers, config){
+				return data.data;
+			}
+		}
+
+		function getQuestionId(question){
+			var questionId = '';
+
+			switch(question){
+				case 'general':
+					questionId = appConfig.generalScoreQue;
+					break;
+			}
+
+			return questionId;
 		}
 	}
 })();

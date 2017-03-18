@@ -5,8 +5,11 @@
 
     core.constant('appConfig', 
     {
-        apiBaseUrl: 'http://localhost:3000/api/',
-        surveyId: '58b8f349aaf9b39e0200000a'
+        apiBaseUrl : 'http://localhost:3000/api/',
+        maxMonths : 6,
+        surveyId : '58b8f349aaf9b39e0200000a',
+        commentQuestion : '58b8f349aaf9b39e0200000b',
+        generalScoreQue : '58b8f349aaf9b39e0200000f',
     });
 
     core.config(configure);
