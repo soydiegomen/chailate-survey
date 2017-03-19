@@ -93,7 +93,7 @@
 			var questionId = '';
 
 			switch(question){
-				case 'general':
+				case 'general-score':
 					questionId = appConfig.generalScoreQue;
 					break;
 			}

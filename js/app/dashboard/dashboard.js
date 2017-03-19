@@ -12,8 +12,8 @@
 		//Variables		
 		ctrl.chartColors = ['#ff6384'];
 		ctrl.chAnsByMo = {};
-		ctrl.chGeneralScore = {};
 		ctrl.lastComments = [];
+		ctrl.questionGeneral = 'general-score';
 
 		activate();
 		
@@ -21,30 +21,6 @@
 			console.log('Activated Dashboard');	
 			getAnswersByMonth();
 			getLastComments();
-			getGeneralScore();
-		}
-
-		/*Chart of distribution of answers*/
-		function getGeneralScore(){
-			return dataservice.getGroupDetails('general')
-				.then(function(data) {
-					setupGeneralScoreChart(data);
-					return data;
-				});
-		}
-
-		function setupGeneralScoreChart(data){
-			var chart = ctrl.chGeneralScore;
-			var listCountAns = [];
-	    	var listLabels = [];
-
-	    	data.forEach(function(entry) {
-
-				listCountAns.push(entry.count);
-				listLabels.push(entry._id);
-			});
-			chart.labels = listLabels;
-  			chart.data = listCountAns;
 		}
 
 		/*Comments in the last months*/

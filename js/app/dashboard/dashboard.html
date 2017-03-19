@@ -31,26 +31,10 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <div class="panel panel-primary"> 
-            <div class="panel-heading"> 
-                <h3 class="panel-title">Encuestas contestadas los últimos seis meses</h3> 
-            </div> 
-            <div class="panel-body"> 
-                <canvas id="pie" class="chart chart-pie"
-                  chart-data="dashboardCtrl.chGeneralScore.data" chart-labels="dashboardCtrl.chGeneralScore.labels">
-                </canvas> 
-            </div> 
-        </div>
+        <question-results question='dashboardCtrl.questionGeneral'></question-results> 
     </div>
     <div class="col-md-6">
-        <div class="panel panel-primary"> 
-            <div class="panel-heading"> 
-                <h3 class="panel-title">Porcentage de encuestas contestadas</h3> 
-            </div> 
-            <div class="panel-body"> 
-                
-            </div> 
-        </div>
+        <question-results question='dashboardCtrl.questionGeneral'></question-results> 
     </div>
 <!-- end row -->
 </div>
