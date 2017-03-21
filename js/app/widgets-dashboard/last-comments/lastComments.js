@@ -2,19 +2,18 @@
 	'use strict';
 	/* The name of the directives must star with lower case*/
 	angular.module('surveyApp.widgetsDashboard')
-		.directive('questionResults', questionResults);
+		.directive('lastComments', lastComments);
 
-	function questionResults() {
+	function lastComments() {
 
 		var directive = {
 			restrict: 'EA',
 		    controllerAs: 'ctrl',
-		    templateUrl: 'js/app/widgets-dashboard/question-results/question-results.html',
+		    templateUrl: 'js/app/widgets-dashboard/last-comments/last-comments.html',
 		    scope: {
 		      question : '='
 		    },
-		    /*link: link,*/
-		    controller: 'QuestionResultsCtrl'
+		    controller: 'LastCommentsCtrl'
 		};
 
 		return directive;

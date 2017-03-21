@@ -1,7 +1,10 @@
 (function(){
 	'use strict';
 
-	angular.module('surveyApp.widgetsDashboard').controller('QuestionResultsCtrl', QuestionResultsCtrl);
+	angular.module('surveyApp.widgetsDashboard')
+		.controller('QuestionResultsCtrl', QuestionResultsCtrl);
+
+	QuestionResultsCtrl.$inject = ['$scope','dataservice'];
 
 	function QuestionResultsCtrl($scope, dataservice){
 		var ctrl = this;

@@ -2,39 +2,13 @@
 
 <div class="row">
     <div class="col-md-6">
-    	<div class="panel panel-primary"> 
-    		<div class="panel-heading"> 
-    			<h3 class="panel-title">Encuestas contestadas los últimos seis meses</h3> 
-    		</div> 
-    		<div class="panel-body"> 
-    			<canvas id="chart-ans-by-month" class="chart chart-bar"
-                    chart-data="dashboardCtrl.chAnsByMo.data" chart-labels="dashboardCtrl.chAnsByMo.labels" chart-series="dashboardCtrl.chAnsByMo.series" chart-colors="dashboardCtrl.chartColors" chart-options="dashboardCtrl.chAnsByMo.options">
-                </canvas>
-    		</div> 
-    	</div>
-    </div>
-    <div class="col-md-6">
-    	<div class="panel panel-primary"> 
-    		<div class="panel-heading"> 
-    			<h3 class="panel-title">Porcentage de encuestas contestadas</h3> 
-    		</div> 
-    		<div class="panel-body"> 
-                <ul>
-                    <li ng-repeat="comments in dashboardCtrl.lastComments">
-                        <span>{{comments.details.value}}</span>
-                    </li>
-                </ul>
-    		</div> 
-    	</div>
-    </div>
-<!-- end row -->
-</div>
-<div class="row">
-    <div class="col-md-6">
         <question-results question='dashboardCtrl.questionGeneral'></question-results> 
     </div>
     <div class="col-md-6">
-        <question-results question='dashboardCtrl.questionGeneral'></question-results> 
+    	<answered-questions></answered-questions>
+    </div>
+    <div class="col-md-6">
+        <last-comments ></last-comments>
     </div>
 <!-- end row -->
 </div>
