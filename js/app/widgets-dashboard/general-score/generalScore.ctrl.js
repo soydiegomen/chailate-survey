@@ -2,17 +2,17 @@
 	'use strict';
 
 	angular.module('surveyApp.widgetsDashboard')
-		.controller('QuestionResultsCtrl', QuestionResultsCtrl);
+		.controller('GeneralScoreCtrl', GeneralScoreCtrl);
 
-	QuestionResultsCtrl.$inject = ['$scope','dataservice'];
+	GeneralScoreCtrl.$inject = ['$scope','dataservice'];
 
-	function QuestionResultsCtrl($scope, dataservice){
+	function GeneralScoreCtrl($scope, dataservice){
 		var ctrl = this;
 
         activate();
 
         function activate(){
-        	console.log('Activated QuestionResultsCtrl');	
+        	console.log('Activated GeneralScoreCtrl');	
         	getGeneralScore();
         }
 
