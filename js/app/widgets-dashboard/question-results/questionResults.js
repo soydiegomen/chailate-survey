@@ -11,7 +11,7 @@
 		    controllerAs: 'ctrl',
 		    templateUrl: 'js/app/widgets-dashboard/question-results/question-results.html',
 		    scope: {
-		      question : '='
+		      chartData : '='
 		    },
 		    /*link: link,*/
 		    controller: 'QuestionResultsCtrl'

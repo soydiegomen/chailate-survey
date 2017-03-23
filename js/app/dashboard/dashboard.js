@@ -10,6 +10,8 @@
 		var ctrl = this;
 
 		ctrl.questionGeneral = 'general-score';
+		ctrl.priceQuestion = { title : 'Evaluación del precio', questionType : 'price'};
+		ctrl.staffQuestion = { title : 'Evaluación del personal de Chailate', questionType : 'staff'};
 
 		activate();
 		

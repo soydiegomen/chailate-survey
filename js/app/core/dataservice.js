@@ -96,6 +96,12 @@
 				case 'general-score':
 					questionId = appConfig.generalScoreQue;
 					break;
+				case 'price':
+					questionId = appConfig.priceQuestion;
+					break;
+				case 'staff':
+					questionId = appConfig.staff;
+					break;
 			}
 
 			return questionId;

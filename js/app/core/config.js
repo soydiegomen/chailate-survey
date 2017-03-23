@@ -10,6 +10,8 @@
         surveyId : '58b8f349aaf9b39e0200000a',
         commentQuestion : '58b8f349aaf9b39e0200000b',
         generalScoreQue : '58b8f349aaf9b39e0200000f',
+        priceQuestion : '58b8f349aaf9b39e0200000e',
+        staff : '58b8f349aaf9b39e0200000d'
     });
 
     core.config(configure);

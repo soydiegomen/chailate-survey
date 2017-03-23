@@ -13,19 +13,19 @@
 
         function activate(){
         	console.log('Activated QuestionResultsCtrl');	
-        	getGeneralScore();
+        	getChartData();
         }
 
         /*Chart of distribution of answers*/
-		function getGeneralScore(){
-			return dataservice.getGroupDetails($scope.question)
+		function getChartData(){
+			return dataservice.getGroupDetails($scope.chartData.questionType)
 				.then(function(data) {
-					setupGeneralScoreChart(data);
+					setupChart(data);
 					return data;
 				});
 		}
 
-		function setupGeneralScoreChart(data){
+		function setupChart(data){
 			var listCountAns = [];
 	    	var listLabels = [];
 
