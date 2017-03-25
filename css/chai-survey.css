@@ -130,15 +130,14 @@ footer li{
     background-color: red;
 }
 /*dashboar styles*/
-.panel-body {
+.chart-content {
 	height: 300px;
 	width: auto;
 }
-
 .comments-container{
 	overflow-y: scroll;
 }
-.comments-container li:nth-child(even){
+.comments-container li:nth-child(even), .survey-container .list-group-item:nth-child(even){
 	background-color: #eee;
 }
 div.comments-container{
