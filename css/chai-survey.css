@@ -129,3 +129,21 @@ footer li{
 .red {
     background-color: red;
 }
+/*dashboar styles*/
+.panel-body {
+	height: 300px;
+	width: auto;
+}
+
+.comments-container{
+	overflow-y: scroll;
+}
+.comments-container li:nth-child(even){
+	background-color: #eee;
+}
+div.comments-container{
+	padding: 0;
+}
+.dashboar-title{
+	margin-bottom: 20px;
+}

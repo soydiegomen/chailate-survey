@@ -100,7 +100,10 @@
 					questionId = appConfig.priceQuestion;
 					break;
 				case 'staff':
-					questionId = appConfig.staff;
+					questionId = appConfig.staffQuestion;
+					break;
+				case 'recommendation':
+					questionId = appConfig.recommendationQuestion;
 					break;
 			}
 
