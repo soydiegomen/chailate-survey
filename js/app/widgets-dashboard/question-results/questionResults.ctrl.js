@@ -32,7 +32,9 @@
 	    	data.forEach(function(entry) {
 
 				listCountAns.push(entry.count);
-				listLabels.push(entry._id);
+				//Set label value
+				var label = (entry._id && entry._id.length) > 0 ? entry._id : 'vacía';
+				listLabels.push(label);
 			});
 			ctrl.labels = listLabels;
   			ctrl.data = listCountAns;
@@ -40,9 +42,13 @@
   			/*Use library chart.piecelabel for show label in pie chart*/
   			ctrl.options = {
 			    pieceLabel: {
-					mode: 'label',
+					mode: 'percentage',
 					fontSize: 16,
-				}
+					precision: 0
+				},
+				legend: {
+		            display: true
+		        }
 			};
 		}
 	}
