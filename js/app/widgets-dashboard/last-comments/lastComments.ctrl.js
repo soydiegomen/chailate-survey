@@ -21,6 +21,9 @@
 		function getLastComments(){
 			return dataservice.getLastComments()
 				.then(function(data) {
+					data.forEach(function(entry) {
+						entry.creationDate = new Date(entry.creationDate);
+					});
 					ctrl.lastComments = data;
 					return data;
 				});

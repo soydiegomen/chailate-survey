@@ -5,6 +5,8 @@
 	<div class="panel-body comments-container chart-content"> 
         <ul class="list-group">
             <li ng-repeat="comments in ctrl.lastComments" class="list-group-item">
+                <span class="help-block" 
+                ng-bind="comments.creationDate"></span>
                 <span>{{comments.details.value}}</span>
             </li>
         </ul>
