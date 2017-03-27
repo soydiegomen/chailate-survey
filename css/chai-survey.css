@@ -134,6 +134,10 @@ footer li{
 	height: 300px;
 	width: auto;
 }
+.dashboar-title{
+	margin-bottom: 20px;
+}
+/*comments widget*/
 .comments-container{
 	overflow-y: scroll;
 }
@@ -142,7 +146,4 @@ footer li{
 }
 div.comments-container{
 	padding: 0;
-}
-.dashboar-title{
-	margin-bottom: 20px;
 }

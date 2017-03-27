@@ -9,6 +9,7 @@
 	function LastCommentsCtrl($scope, dataservice){
 		var ctrl = this;
 		ctrl.lastComments = [];
+		ctrl.today = new Date();
 
         activate();
 
