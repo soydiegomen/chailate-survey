@@ -12,7 +12,8 @@
 			saveAnswer : saveAnswer,
 			getAnswersByMonth : getAnswersByMonth,
 			getLastComments : getLastComments,
-			getGroupDetails : getGroupDetails
+			getGroupDetails : getGroupDetails,
+			getLastAnswer : getLastAnswer
 		};
 
 		return service;
@@ -89,6 +90,23 @@
 			}
 		}
 
+		function getLastAnswer(date){
+			
+			var serviceUrl = appConfig.apiBaseUrl + 'last-answer/' + 
+				appConfig.surveyId + '/' + date;
+
+			return $http.get(serviceUrl)
+				.then(getLastAnswerComplete)
+				.catch(function (message){
+					console.log('Error in getLastAnswer. Message:' + message);
+				});
+
+			function getLastAnswerComplete(data, status, headers, config){
+				return data.data;
+			}
+		}
+
+		/*Helpers*/
 		function getQuestionId(question){
 			var questionId = '';
 
