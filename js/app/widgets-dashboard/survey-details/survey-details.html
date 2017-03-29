@@ -5,33 +5,19 @@
     <div class="panel-body">
     	<div>
     		<div class="pull-left">
-    			<span class="help-block">Encuesta contestada <b>23/03/2017 20:55</b></span>
+    			<span class="help-block">Encuesta contestada 
+    				<b>{{ ctrl.answerDate | date:'dd/MM/yyyy HH:mm' }}</b>
+    			</span>
     		</div>
     		<div class="pull-right">
-    			<span class="help-block">Key: <b>Fotos</b></span>
+    			<span class="help-block">Key: <b>{{ ctrl.key }}</b></span>
     		</div>
     		<div class="clearfix"></div>
     	</div>
     	<div class="list-group survey-container">
-			<div class="list-group-item">
-				<h5 class="list-group-item-heading">¿En general qué te pareció el servicio?</h5>
-				<p class="list-group-item-text">Bueno</p>
-			</div>
-			<div class="list-group-item">
-				<h5 class="list-group-item-heading">¿En general qué te pareció el servicio?</h5>
-				<p class="list-group-item-text">Bueno</p>
-			</div>
-			<div class="list-group-item">
-				<h5 class="list-group-item-heading">¿En general qué te pareció el servicio?</h5>
-				<p class="list-group-item-text">Bueno</p>
-			</div>
-			<div class="list-group-item">
-				<h5 class="list-group-item-heading">¿En general qué te pareció el servicio?</h5>
-				<p class="list-group-item-text">Bueno</p>
-			</div>
-			<div class="list-group-item">
-				<h5 class="list-group-item-heading">¿En general qué te pareció el servicio?</h5>
-				<p class="list-group-item-text">Bueno</p>
+			<div ng-repeat="question in ctrl.questions" class="list-group-item">
+				<h5 class="list-group-item-heading">{{ question.text }}</h5>
+				<span class="list-group-item-text">{{ question.answer }}</span>
 			</div>
 		</div> 
 		<nav>
