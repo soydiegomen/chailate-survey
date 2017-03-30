@@ -6,61 +6,76 @@
 
 	SurveyDetailsCtrl.$inject = ['$scope','dataservice'];
 
-	function SurveyDetailsCtrl($scope, dataservice){
-		var ctrl = this;
+        function SurveyDetailsCtrl($scope, dataservice){
+                var ctrl = this;
+                ctrl.getABeforAnswer = getABeforAnswer;
 
-        activate();
+                activate();
 
-        function activate(){
-        	console.log('Activated SurveyDetailsCtrl');	
-        	getChailateSurvey().then(getLastAnswer).then(function(result) {
-        		ctrl.questions = fillAnswersInQuestions(result);
+                function activate(){
+                	console.log('Activated SurveyDetailsCtrl');	
+                        getSurveyAndAnswer();        	
+                }
 
-        		var answer = result.answer[0];
-        		ctrl.answerDate = new Date(answer.creationDate);
-        		ctrl.key = (answer.key && answer.key.length > 0) ?
-        			answer.key : 'vacía';
-        	});
-        }
+                function getABeforAnswer(){
+                        console.log('update data');
+                        var lastDate = ctrl.answerDate;
+                        lastDate.setSeconds(lastDate.getSeconds() - 1);
+                        getLastAnswer(null, lastDate).then(setupWidgetData);
+                }
 
-        function fillAnswersInQuestions(data){
-        	var questions = data.survey.questions;
-        	var answers = data.answer[0].details;
-        	
-        	//Iterate questions for fill the answer
-        	questions.forEach(function(question) {
-        		answers.forEach(function(ans) {
-        			//find the answer to the current question
-        			if(question._id === ans.questionId){
-        				//assing the answer value
-        				question.answer = ans.value;
-        			}
-        		});
-        	});
-        	console.log(data.answer[0]);
-        	return questions;
-        }
+                function setupWidgetData(result){
+                        var answer = result[0];
+                        ctrl.questions = fillAnswersInQuestions(answer);
 
-        function getLastAnswer(survey){
-        	var date = new Date();
-			var isoDate = date.toISOString();
-			return dataservice.getLastAnswer(isoDate)
-				.then(function(data) {
-					var result = { 
-						survey : survey, 
-						answer : data
-					};
-					
-					return result;
-				});
-		}
+                        
+                        ctrl.answerDate = new Date(answer.creationDate);
+                        ctrl.key = (answer.key && answer.key.length > 0) ?
+                                answer.key : 'vacía';
+                }
 
-		function getChailateSurvey(){
-			return dataservice.getChailateSurvey()
-				.then(function(data) {
-					return data;
-				});
-		}
+                function getSurveyAndAnswer(){
+                        getChailateSurvey().then(getLastAnswer).then(setupWidgetData);
+                }
+
+                function fillAnswersInQuestions(answer){
+                	var questions = ctrl.survey.questions;
+                	var ansDetails = answer.details;
+                	
+                	//Iterate questions for fill the answer
+                	questions.forEach(function(question) {
+                		ansDetails.forEach(function(ans) {
+                			//find the answer to the current question
+                			if(question._id === ans.questionId){
+                				//assing the answer value
+                				question.answer = ans.value;
+                			}
+                		});
+                	});
+                	
+                	return questions;
+                }
+
+                function getLastAnswer(survey, lastDate){
+                        if(!lastDate){
+                                lastDate = new Date();
+                        }
+                	console.log(lastDate);
+                	var isoDate = lastDate.toISOString();
+        		return dataservice.getLastAnswer(isoDate)
+        			.then(function(data) {
+        				
+        				return data;
+        			});
+                }
+
+                function getChailateSurvey(){
+        		return dataservice.getChailateSurvey()
+        			.then(function(data) {
+                                        ctrl.survey = data;
+        				return data;
+        			});
+                }
 	}
 
 })();
