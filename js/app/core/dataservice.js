@@ -90,10 +90,10 @@
 			}
 		}
 
-		function getLastAnswer(date){
+		function getLastAnswer(date, direction){
 			
 			var serviceUrl = appConfig.apiBaseUrl + 'last-answer/' + 
-				appConfig.surveyId + '/' + date;
+				appConfig.surveyId + '/' + date + '/' + direction;
 
 			return $http.get(serviceUrl)
 				.then(getLastAnswerComplete)

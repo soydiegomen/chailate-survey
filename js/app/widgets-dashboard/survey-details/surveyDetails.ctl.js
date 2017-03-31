@@ -8,7 +8,8 @@
 
         function SurveyDetailsCtrl($scope, dataservice){
                 var ctrl = this;
-                ctrl.getABeforAnswer = getABeforAnswer;
+                ctrl.getBeforAnswer = getBeforAnswer;
+                ctrl.getNextAnswer = getNextAnswer;
 
                 activate();
 
@@ -17,11 +18,18 @@
                         getSurveyAndAnswer();        	
                 }
 
-                function getABeforAnswer(){
+                function getNextAnswer(){
+                        console.log('update data');
+                        var lastDate = ctrl.answerDate;
+                        lastDate.setSeconds(lastDate.getSeconds() + 1);
+                        getLastAnswer(null, lastDate, 'next').then(setupWidgetData);
+                }
+
+                function getBeforAnswer(){
                         console.log('update data');
                         var lastDate = ctrl.answerDate;
                         lastDate.setSeconds(lastDate.getSeconds() - 1);
-                        getLastAnswer(null, lastDate).then(setupWidgetData);
+                        getLastAnswer(null, lastDate, 'before').then(setupWidgetData);
                 }
 
                 function setupWidgetData(result){
@@ -56,13 +64,16 @@
                 	return questions;
                 }
 
-                function getLastAnswer(survey, lastDate){
+                function getLastAnswer(survey, lastDate, direction){
                         if(!lastDate){
                                 lastDate = new Date();
                         }
                 	console.log(lastDate);
                 	var isoDate = lastDate.toISOString();
-        		return dataservice.getLastAnswer(isoDate)
+                        if(!direction){
+                                direction = 'before';       
+                        }
+        		return dataservice.getLastAnswer(isoDate, direction)
         			.then(function(data) {
         				
         				return data;
