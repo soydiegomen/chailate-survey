@@ -22,8 +22,8 @@
 		</div> 
 		<nav>
 		  <ul class="pager">
-		    <li><a href ng-click="ctrl.getBeforAnswer();">Anterior</a></li>
-		    <li><a href ng-click="ctrl.getNextAnswer();" class="">Siguiente</a></li>
+		    <li><a href ng-click="ctrl.getBeforAnswer();" ng-show="ctrl.showBeforeButton">Anterior</a></li>
+		    <li><a href ng-click="ctrl.getNextAnswer();" ng-show="ctrl.showNextButton">Siguiente</a></li>
 		  </ul>
 		</nav>
 		<!-- end panel-body -->

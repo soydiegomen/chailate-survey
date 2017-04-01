@@ -10,41 +10,60 @@
                 var ctrl = this;
                 ctrl.getBeforAnswer = getBeforAnswer;
                 ctrl.getNextAnswer = getNextAnswer;
+                ctrl.answerDate = null;
+                ctrl.key = null;
+                ctrl.survey = null;
+                ctrl.showNextButton = true;
+                ctrl.showBeforeButton = true;
+                var firstDate = null;
 
                 activate();
 
                 function activate(){
                 	console.log('Activated SurveyDetailsCtrl');	
-                        getSurveyAndAnswer();        	
+                        initializeWidget();        	
+                }
+
+                function initializeWidget(){
+                        getChailateSurvey().then(function(){
+                                var now = new Date();
+                                return getLastAnswer(now, 'before');
+                        }).then(setupWidgetData);
                 }
 
                 function getNextAnswer(){
-                        console.log('update data');
                         var lastDate = ctrl.answerDate;
                         lastDate.setSeconds(lastDate.getSeconds() + 1);
-                        getLastAnswer(null, lastDate, 'next').then(setupWidgetData);
+                        getLastAnswer(lastDate, 'next').then(setupWidgetData);
                 }
 
                 function getBeforAnswer(){
-                        console.log('update data');
                         var lastDate = ctrl.answerDate;
                         lastDate.setSeconds(lastDate.getSeconds() - 1);
-                        getLastAnswer(null, lastDate, 'before').then(setupWidgetData);
+                        getLastAnswer(lastDate, 'before').then(setupWidgetData);
                 }
 
                 function setupWidgetData(result){
-                        var answer = result[0];
-                        ctrl.questions = fillAnswersInQuestions(answer);
+                        if(result.length > 0){
+                                var answer = result[0];
+                                ctrl.questions = fillAnswersInQuestions(answer);
 
-                        
-                        ctrl.answerDate = new Date(answer.creationDate);
-                        ctrl.key = (answer.key && answer.key.length > 0) ?
-                                answer.key : 'vacía';
-                }
+                                ctrl.key = (answer.key && answer.key.length > 0) ?
+                                        answer.key : 'vacía';
 
-                function getSurveyAndAnswer(){
-                        getChailateSurvey().then(getLastAnswer).then(setupWidgetData);
-                }
+                                ctrl.answerDate = new Date(answer.creationDate);
+                                if(firstDate === null || firstDate.getTime() === ctrl.answerDate.getTime()){
+                                        firstDate = new Date(ctrl.answerDate.getTime());
+                                        ctrl.showNextButton = false;
+                                }else{
+                                      ctrl.showNextButton = true;  
+                                }
+                                //mientras haya información siempre se muestra el botón Before
+                                ctrl.showBeforeButton = true;
+                        }else{
+                                ctrl.showBeforeButton = false;
+                        }
+                }                
 
                 function fillAnswersInQuestions(answer){
                 	var questions = ctrl.survey.questions;
@@ -64,15 +83,8 @@
                 	return questions;
                 }
 
-                function getLastAnswer(survey, lastDate, direction){
-                        if(!lastDate){
-                                lastDate = new Date();
-                        }
-                	console.log(lastDate);
+                function getLastAnswer(lastDate, direction){
                 	var isoDate = lastDate.toISOString();
-                        if(!direction){
-                                direction = 'before';       
-                        }
         		return dataservice.getLastAnswer(isoDate, direction)
         			.then(function(data) {
         				
