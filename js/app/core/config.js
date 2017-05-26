@@ -15,6 +15,19 @@
         recommendationQuestion : '58b8f349aaf9b39e0200000c'
     });
 
+    /*
+    core.constant('appConfig', 
+    {
+        maxMonths : 6,
+        surveyId : '59279aa0a8d5b8ac41000004',
+        commentQuestion : '59279aa0a8d5b8ac41000005',
+        generalScoreQue : '59279aa0a8d5b8ac41000009',
+        priceQuestion : '59279aa0a8d5b8ac41000008',
+        staffQuestion : '59279aa0a8d5b8ac41000007',
+        recommendationQuestion : '59279aa0a8d5b8ac41000006'
+    });
+    */
+
     core.config(configure);
 
     //configure.$inject = ['$routeProvider', 'routehelperConfigProvider', 'locationProvider'];
